@@ -1,21 +1,21 @@
 <div class="container">
-    <div *ngIf = "profile" class="row">
-      <h1 class="mx-lg-5 mx-5">{{profile.login}}</h1>
+    <div *ngIf = "user" class="row">
+      <h1 class="mx-lg-5 mx-5">{{user.login}}</h1>
   
       <div class="row row-cols-lg-4">
           <div class="col">
-              <img src="{{profile.avatar_url}}" class="rounded img-fluid" alt="profile-image"><br>
+              <img src="{{user.avatar_url}}" class="rounded img-fluid" alt="profile-image"><br>
   
           </div>
       </div>
       <div class="row mt-5 mx-1 row-cols-lg-3">
           <div class="col">
               <ul class="list-group">
-                  <li class="list-group-item" *ngIf = "profile.bio">{{profile.bio}}</li>
-                  <li class="list-group-item" *ngIf = "profile.company">{{profile.company}}</li>
-                  <li class="list-group-item label label-primary">followers:{{profile.followers}}
-                       <span class="mx-5">following:{{profile.following}}</span></li>
-                  <li class="list-group-item">  repositories:{{profile.public_repos}}</li>
+                  <li class="list-group-item" *ngIf = "user.bio">{{user.bio}}</li>
+                  <li class="list-group-item" *ngIf = "user.company">{{user.company}}</li>
+                  <li class="list-group-item label label-primary">followers:{{user.followers}}
+                       <span class="mx-5">following:{{user.following}}</span></li>
+                  <li class="list-group-item">  repositories:{{user.public_repos}}</li>
   
   
   
@@ -23,7 +23,17 @@
   
           </div>
       </div>
-      <p><a class="btn btn-success btn-sm mx-5 mt-3" target="_blank" href="{{profile.html_url}}">View Profile on Github</a></p>
+      <p><a class="btn btn-success btn-sm mx-5 mt-3" target="_blank" href="{{user.html_url}}">View Profile on Github</a></p>
   
   </div>
+
+<div class="row" *ngFor = "let repo of repository">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{repo.name}} </h5>
+          <p class="card-text" *ngIf = "repo.description">{{repo.description}}</p>
+          <a href="{{repo.html_url}}" target="_blank" class="btn btn-primary btn-sm">View this Project on GitHub</a>
+        </div>
+      </div>
+      </div>
 </div>
