@@ -2,23 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { UserRequestService } from '../services/user-request.service';
 import { Hub } from '../hub';
 
-
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  profile!: Hub;
+  user!: Hub;
+  repository:any;
+  
 
   constructor(private userService:UserRequestService) { 
-      
+    this.userService.repoRequest().subscribe(repos=>{
+      console.log(repos)
+      this.repository =repos;
 
+     })
    }
+  
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.userService.userRequest();
-    this.profile = this.userService.profile
+    this.user = this.userService.profile
+
   }
+  
 
 }
