@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Hub } from '../hub';
+// import { Repo } from '../repo';
+import "rxjs/add/operator/map"
+
 
 
 @Injectable({
@@ -9,11 +12,13 @@ import { Hub } from '../hub';
 })
 export class UserRequestService {
   profile!: Hub;
+  // repo: Repo;
   private username: string;
 
 
   constructor(private http:HttpClient) {
     this.profile = new Hub("", "","","",0,0,0,"") 
+    // this.repo = new Repo("","")
     this.username = "otienonick"
   }
 userRequest(){
@@ -25,6 +30,8 @@ userRequest(){
     following:number
     public_repos:number
     html_url:string
+  
+    
 
   }
   let promise = new Promise<void>((resolve,reject)=>{
@@ -36,6 +43,8 @@ userRequest(){
       this.profile.following = response.following
       this.profile.public_repos = response.public_repos
       this.profile.html_url = response.html_url
+    
+     
 
 
       resolve()
@@ -49,5 +58,15 @@ userRequest(){
   return promise;
 
 }
+
+
+repoRequest(){
+  return this.http.get('https://api.github.com/users/' + this.username +'/repos?access_token=' + environment.myApiKey)
+  .map((res: any) => {
+    return res
+})
+
+ }
+
   
 }
