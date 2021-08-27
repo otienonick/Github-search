@@ -1,0 +1,33 @@
+
+  #twitter-logo {
+    height: 40px;
+  }
+
+  #instagram-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+   #github-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+  .instagram-logo  path {
+      fill: #fff;
+    }
+
+    .logo {
+      fill: #fff;
+    }
+    #twitter-logo,
+     #instagram-logo,
+    #github-logo{
+      transition: .8s ease-out;
+
+    }
+
+   #twitter-logo:hover,
+  #instagram-logo:hover,
+   #github-logo:hover {
+    opacity: 0.8;
+    transform: translateY(-0.25rem);
+  }
