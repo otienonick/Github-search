@@ -1,1 +1,29 @@
-<p>homepage works!</p>
+<div class="container">
+    <div *ngIf = "profile" class="row">
+      <h1 class="mx-lg-5 mx-5">{{profile.login}}</h1>
+  
+      <div class="row row-cols-lg-4">
+          <div class="col">
+              <img src="{{profile.avatar_url}}" class="rounded img-fluid" alt="profile-image"><br>
+  
+          </div>
+      </div>
+      <div class="row mt-5 mx-1 row-cols-lg-3">
+          <div class="col">
+              <ul class="list-group">
+                  <li class="list-group-item" *ngIf = "profile.bio">{{profile.bio}}</li>
+                  <li class="list-group-item" *ngIf = "profile.company">{{profile.company}}</li>
+                  <li class="list-group-item label label-primary">followers:{{profile.followers}}
+                       <span class="mx-5">following:{{profile.following}}</span></li>
+                  <li class="list-group-item">  repositories:{{profile.public_repos}}</li>
+  
+  
+  
+              </ul>
+  
+          </div>
+      </div>
+      <!-- <p><a class="btn btn-success btn-sm mx-5 mt-3" target="_blank" href="{{profile.html_url}}">View Profile on Github</a></p> -->
+  
+  </div>
+</div>
