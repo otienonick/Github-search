@@ -13,7 +13,7 @@ export class UserRequestService {
 
 
   constructor(private http:HttpClient) {
-    this.profile = new Hub("", "","","",0,0,0) 
+    this.profile = new Hub("", "","","",0,0,0,"") 
     this.username = "otienonick"
   }
 userRequest(){
@@ -24,6 +24,7 @@ userRequest(){
     followers:number
     following:number
     public_repos:number
+    html_url:string
 
   }
   let promise = new Promise<void>((resolve,reject)=>{
@@ -34,6 +35,8 @@ userRequest(){
       this.profile.followers = response.followers
       this.profile.following = response.following
       this.profile.public_repos = response.public_repos
+      this.profile.html_url = response.html_url
+
 
       resolve()
     },
