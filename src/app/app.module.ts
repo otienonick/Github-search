@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchusersComponent } from './searchusers/searchusers.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { SearchusersComponent } from './searchusers/searchusers.component';
     NavbarComponent,
     HomepageComponent,
     SearchusersComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
