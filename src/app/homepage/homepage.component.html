@@ -1,43 +1,35 @@
+<div class="container-fluid">
 <div class="container">
-    <div *ngIf = "user" class="col">
-      <h1 class="mx-lg-5 mx-5">{{user.login}}</h1>
-  
-      <div class="row row-cols-lg-4">
-          <div class="col">
-              <img src="{{user.avatar_url}}" class="rounded img-fluid" alt="profile-image"><br>
-  
-          </div>
+ 
+  <div *ngIf = "user" class=" start col-md-12 col-sm-12 col-lg-3 col-xl-3">
+    <div>
+      <div>
+        <img src="{{user.avatar_url}}" class="rounded img-fluid" width="300px" alt="profile-image">
       </div>
-      <div class="row mt-5 mx-1 row-cols-lg-3">
-          <div class="col">
-              <ul class="list-group">
-                  <li class="list-group-item" *ngIf = "user.bio">{{user.bio}}</li>
-                  <li class="list-group-item" *ngIf = "user.company">{{user.company}}</li>
-              </ul>
-  
+       <div>
+          <p class="login">{{user.login}}</p>
+          <p *ngIf = "user.bio" class="bio">{{user.bio}}</p>
+          <div class="box mb-3">
+            <span class="repoName ">Followers</span>
+            <span class="repoNumber mx-2">{{user.followers}}</span>
+            <span class="repoName">Following</span>
+            <span class="repoNumber mx-2">{{user.following}}</span>
           </div>
+          <a target="_blank" [href]="user.html_url"><button type="button" class="btn btn-primary mx-lg-5 btn-sm">View Profile on Github</button></a>
+        </div>
       </div>
-      <p><a class="btn btn-success btn-sm mx-5 mt-3" target="_blank" href="{{user.html_url}}">View Profile on Github</a></p>
-  
   </div>
 
 
 
         
-      <div class="col-md-12 col-sm-12 col-lg-9 col-xl-9">
+      <div class="col-md-12 col-11 col-sm-12 col-lg-9 col-xl-9">
         <div class="top">
           <div class="box">
             <span class="repoName">Repositories</span>
             <span class="repoNumber">{{user.public_repos}}</span>
           </div>
-          <div class="box">
-            <span class="repoName">Followers</span>
-            <span class="repoNumber">{{user.followers}}</span>
-          </div>
-          <div class="box">
-            <span class="repoName">Following</span>
-            <span class="repoNumber">{{user.following}}</span>
-          </div>
+          
         </div>
 
 
@@ -57,4 +49,5 @@
           </div>
         </div>
       </div>
+</div>
 </div>
