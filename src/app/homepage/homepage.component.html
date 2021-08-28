@@ -1,19 +1,19 @@
 <div class="container-fluid">
 <div class="container">
  
-  <div *ngIf = "user" class=" start col-md-12 col-sm-12 col-lg-3 col-xl-3">
+  <div *ngIf = "user" class="mt-lg-5 col-md-12 col-sm-12 col-lg-3 col-xl-3">
     <div>
       <div>
-        <img src="{{user.avatar_url}}" class="rounded img-fluid" width="300px" alt="profile-image">
+        <img src="{{user.avatar_url}}" class="img-fluid" alt="profile-image">
       </div>
        <div>
           <p class="login">{{user.login}}</p>
           <p *ngIf = "user.bio" class="bio">{{user.bio}}</p>
-          <div class="box mb-3">
-            <span class="repoName ">Followers</span>
-            <span class="repoNumber mx-2">{{user.followers}}</span>
+          <div class="mb-3">
+            <span class="repoNumber">{{user.followers}}</span>
+            <span class="repoName p-1">Followers</span>
+            <span class="repoNumber mx-1">{{user.following}}</span>
             <span class="repoName">Following</span>
-            <span class="repoNumber mx-2">{{user.following}}</span>
           </div>
           <a target="_blank" [href]="user.html_url"><button type="button" class="btn btn-primary mx-lg-5 btn-sm">View Profile on Github</button></a>
         </div>
@@ -23,22 +23,22 @@
 
 
         
-      <div class="col-md-12 col-11 col-sm-12 col-lg-9 col-xl-9">
+      <div class="col-md-12 col-12 col-sm-12 col-lg-9 col-xl-9">
         <div class="top">
           <div class="box">
-            <span class="repoName">Repositories</span>
+            <span class="repoName mx-2">Repositories</span>
             <span class="repoNumber">{{user.public_repos}}</span>
           </div>
           
         </div>
 
 
-        <div class="repos">
+        <div class="repos  col-12">
 
-          <div class="repo-box" *ngFor="let repo of repository">
+          <div class="repo-box mt-3 p-3" *ngFor="let repo of repository">
             <div class="repo-top">
-              <a [href]="repo.html_url" class="repo-title">{{repo.name}}</a>
-              <p class="repo-description">{{repo.description}}</p>
+              <a target="_blank" [href]="repo.html_url" class="repo-title">{{repo.name}}</a>
+              <p class="repo-description mt-2" *ngIf = repo.description>{{repo.description}}</p>
             </div>
             <div class="repo-language">
               <div class="repo-box2">
