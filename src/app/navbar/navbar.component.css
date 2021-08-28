@@ -31,3 +31,8 @@
     opacity: 0.8;
     transform: translateY(-0.25rem);
   }
+  @media screen and (max-width: 600px) {
+    svg{
+      display: none;
+    }
+  }

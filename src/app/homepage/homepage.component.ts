@@ -16,7 +16,6 @@ export class HomepageComponent implements OnInit {
 
   constructor(private userService:UserRequestService) { 
     this.userService.repoRequest().subscribe(repos=>{
-      console.log(repos)
       this.repository =repos;
 
      })
