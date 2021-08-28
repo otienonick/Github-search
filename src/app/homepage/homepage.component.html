@@ -1,4 +1,15 @@
+
+ 
+
 <div class="container-fluid">
+  <form>
+    <div class="form-floating col-10 mx-5 mb-5"> 
+         <input type="text" class="form-control" placeholder="search for users" [(ngModel)] = "username" name="username" (keyup) ="findProfile()">  
+         <label for="floatingInput">Search for Users</label>
+
+        </div>
+</form>
+
 <div class="container">
  
   <div *ngIf = "user" class="mt-lg-5 col-md-12 col-sm-12 col-lg-3 col-xl-3">
@@ -15,6 +26,7 @@
             <span class="repoNumber mx-1">{{user.following}}</span>
             <span class="repoName">Following</span>
           </div>
+          <p class="color-gray">Created On:{{user.created_at | date}}</p>
           <a target="_blank" [href]="user.html_url"><button type="button" class="btn btn-primary mx-lg-5 btn-sm">View Profile on Github</button></a>
         </div>
       </div>

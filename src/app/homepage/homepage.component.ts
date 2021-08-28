@@ -10,6 +10,8 @@ import { Hub } from '../hub';
 export class HomepageComponent implements OnInit {
   user!: Hub;
   repository:any;
+  username!: string;
+
   
 
   constructor(private userService:UserRequestService) { 
@@ -19,6 +21,7 @@ export class HomepageComponent implements OnInit {
 
      })
    }
+   
   
 
   ngOnInit(){
@@ -26,6 +29,20 @@ export class HomepageComponent implements OnInit {
     this.user = this.userService.profile
 
   }
-  
+
+  findProfile(){
+    this.userService.searchUser(this.username)
+    this.userService.repoRequest().subscribe(repos=>{
+      console.log(repos)
+      this.repository =repos;
+      this.userService.userRequest();
+      this.user = this.userService.profile
+      console.log(this.repository)
+
+     })
+    
+      
+
+  }
 
 }
