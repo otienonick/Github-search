@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Hub } from '../hub';
-import { Repo } from '../repo';
 import "rxjs/add/operator/map"
 
 
@@ -12,7 +11,6 @@ import "rxjs/add/operator/map"
 })
 export class UserRequestService {
   profile!: Hub;
-  // repo: Repo;
   private username: string;
   private API_URL= environment.myApiKey;
   
@@ -20,7 +18,6 @@ export class UserRequestService {
 
   constructor(private http:HttpClient) {
     this.profile = new Hub("", "","","",0,0,new Date,0,"") 
-    // this.repo = new Repo("","","")
     this.username = "otienonick"
   }
 userRequest(){
