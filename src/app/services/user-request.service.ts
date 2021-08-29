@@ -12,6 +12,7 @@ import "rxjs/add/operator/map"
 export class UserRequestService {
   profile!: Hub;
   private username: string;
+  private API_URL = environment.myApiKey
 
   
 
@@ -35,7 +36,7 @@ userRequest(){
 
 
   let promise = new Promise<void>((resolve,reject)=>{
-    this.http.get<ApiResponse>( 'https://api.github.com/users/' + this.username +'?access_token=' + environment.myApiKey).toPromise().then(response=>{
+    this.http.get<ApiResponse>( 'https://api.github.com/users/' + this.username +'?access_token=' + this.API_URL).toPromise().then(response=>{
       this.profile.login = response.login
       this.profile.avatar_url =response.avatar_url
       this.profile.bio = response.bio
@@ -59,7 +60,7 @@ userRequest(){
 
 
 repoRequest(){
-  return this.http.get('https://api.github.com/users/' + this.username +'/repos?access_token=' + environment.myApiKey)
+  return this.http.get('https://api.github.com/users/' + this.username +'/repos?access_token=' + this.API_URL)
   .map((repoRequest: any) => {
     return repoRequest
 })
