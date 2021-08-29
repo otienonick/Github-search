@@ -60,8 +60,8 @@ userRequest(){
 
 repoRequest(){
   return this.http.get('https://api.github.com/users/' + this.username +'/repos?access_token=' + environment.myApiKey)
-  .map((res: any) => {
-    return res
+  .map((repoRequest: any) => {
+    return repoRequest
 })
 
  }

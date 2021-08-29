@@ -15,8 +15,8 @@ export class HomepageComponent implements OnInit {
   
 
   constructor(private userService:UserRequestService) { 
-    this.userService.repoRequest().subscribe(repos=>{
-      this.repository =repos;
+    this.userService.repoRequest().subscribe(repos =>{
+      this.repository = repos;
 
      })
    }
@@ -31,12 +31,10 @@ export class HomepageComponent implements OnInit {
 
   findProfile(){
     this.userService.searchUser(this.username)
-    this.userService.repoRequest().subscribe(repos=>{
-      console.log(repos)
+    this.userService.repoRequest().subscribe(repos =>{
       this.repository =repos;
       this.userService.userRequest();
       this.user = this.userService.profile
-      console.log(this.repository)
 
      })
     
