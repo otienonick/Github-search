@@ -12,6 +12,8 @@ import "rxjs/add/operator/map"
 export class UserRequestService {
   profile!: Hub;
   private username: string;
+  // private  myApiKey:"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"
+
   
 
 
@@ -30,8 +32,6 @@ userRequest(){
     public_repos:number
     html_url:string
   
-    
-
   }
 
 
@@ -45,9 +45,6 @@ userRequest(){
       this.profile.created_at = response.created_at
       this.profile.public_repos = response.public_repos
       this.profile.html_url = response.html_url
-    
-     
-
 
       resolve()
     },

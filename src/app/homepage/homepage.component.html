@@ -2,12 +2,12 @@
  
 
 <div class="container-fluid">
-  <form>
-    <div class="form-floating col-10 mx-5 mb-5"> 
-         <input type="text" class="form-control" placeholder="search for users" [(ngModel)] = "username" name="username" (keyup) ="findProfile()">  
-         <label for="floatingInput">Search for Users</label>
+  <form class="d-flex" (ngSubmit) ="findProfile()">
+    <div class="col-8 mx-5 mb-5"> 
+         <input type="text" class="form-control" placeholder="search for users" [(ngModel)] = "username" name="username">  
 
         </div>
+        <button type="submit" class="btn btn-primary btn-sm" >Search</button>
 </form>
 
 <div class="container">
