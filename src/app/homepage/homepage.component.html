@@ -3,11 +3,13 @@
 
 <div class="container-fluid">
   <form class="d-flex" (ngSubmit) ="findProfile()">
-    <div class="col-8 mx-5 mb-5"> 
-         <input type="text" class="form-control" placeholder="search for users" [(ngModel)] = "username" name="username">  
 
+    <div class="col-8 mx-4"> 
+         <input type="text" class="form-control"   placeholder="search for users" [(ngModel)] = "username" name="username">  
         </div>
+        <div class="col-4">
         <button type="submit" class="btn btn-primary btn-sm" >Search</button>
+        </div>
 </form>
 
 <div class="container">
