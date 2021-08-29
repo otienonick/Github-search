@@ -12,7 +12,6 @@ import "rxjs/add/operator/map"
 export class UserRequestService {
   profile!: Hub;
   private username: string;
-  // private  myApiKey:"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"
 
   
 
