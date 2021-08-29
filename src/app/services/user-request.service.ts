@@ -12,6 +12,7 @@ import "rxjs/add/operator/map"
 export class UserRequestService {
   profile!: Hub;
   private username: string;
+  myApiKey!: string;
   private API_URL = environment.myApiKey
 
   
